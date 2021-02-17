@@ -1,4 +1,3 @@
-
 # Copyright (C) 2021 Nicolas Lamirault <nicolas.lamirault@gmail.com>
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,14 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-resource "aws_kms_key" "vector" {
-  description             = "KMS for Vector"
-  deletion_window_in_days = var.deletion_window_in_days
-  enable_key_rotation     = true
-  tags                    = var.tags
+config {
+  module = false
+  force = false
+  disabled_by_default = false
+
+  ignore_module = {
+  }
+
 }
 
-resource "aws_kms_alias" "vector" {
-  name          = "alias/vector"
-  target_key_id = aws_kms_key.vector.key_id
+plugin "aws" {
+  enabled = true
 }

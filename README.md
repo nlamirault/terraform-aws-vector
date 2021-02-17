@@ -8,7 +8,7 @@
 module "vector" {
   source  = "nlamirault/vector/aws"
   version = "1.0.0"
-  
+
   project = var.project
 
   namespace       = var.namespace

@@ -66,7 +66,7 @@ data "aws_iam_policy_document" "vector_permissions" {
   }
 
   statement {
-    effect  = "Allow"
+    effect = "Allow"
 
     actions = [
       "kms:Encrypt",
@@ -91,5 +91,3 @@ resource "aws_iam_role_policy_attachment" "vector" {
   role       = aws_iam_role.vector.name
   policy_arn = aws_iam_policy.vector_permissions.arn
 }
-
-

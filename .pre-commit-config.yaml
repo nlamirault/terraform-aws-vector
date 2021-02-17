@@ -1,4 +1,3 @@
-
 # Copyright (C) 2021 Nicolas Lamirault <nicolas.lamirault@gmail.com>
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,14 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-resource "aws_kms_key" "vector" {
-  description             = "KMS for Vector"
-  deletion_window_in_days = var.deletion_window_in_days
-  enable_key_rotation     = true
-  tags                    = var.tags
-}
-
-resource "aws_kms_alias" "vector" {
-  name          = "alias/vector"
-  target_key_id = aws_kms_key.vector.key_id
-}
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+- repo: git://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.45.0
+  hooks:
+    - id: terraform_fmt
+    - id: terraform_docs
+    - id: terraform_tflint
+    # - id: terraform_tfsec
