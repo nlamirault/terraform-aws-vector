@@ -66,7 +66,7 @@ data "aws_iam_policy_document" "vector_permissions" {
   }
 
   statement {
-    effect  = "Allow"
+    effect = "Allow"
 
     actions = [
       "kms:Encrypt",
