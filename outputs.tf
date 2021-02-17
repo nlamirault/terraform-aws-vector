@@ -13,9 +13,11 @@
 # limitations under the License.
 
 output "role_arn" {
-  value = element(aws_iam_role.vector.*.arn, 0)
+  value       = element(aws_iam_role.vector.*.arn, 0)
+  description = "Role ARN for Vector"
 }
 
 output "kms_arn" {
-  value = aws_kms_key.vector.arn
+  value       = aws_kms_key.vector.arn
+  description = "Role ARN for Vector KMS key"
 }
