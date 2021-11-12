@@ -14,4 +14,15 @@
 
 locals {
   service_name = format("%s-vector", var.cluster_name)
+
+  role_name = "vector"
+
+  tags = merge(
+    var.tags,
+    {
+      "Made-By" = "terraform"
+      "Service" = "vector"
+      "Iam"     = "eks-vector"
+    }
+  )
 }

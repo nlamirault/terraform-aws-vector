@@ -14,13 +14,18 @@
 # limitations under the License.
 
 resource "aws_kms_key" "vector" {
+  count                   = var.enable_kms ? 1 : 0
   description             = "KMS for Vector"
   deletion_window_in_days = var.deletion_window_in_days
   enable_key_rotation     = true
-  tags                    = var.tags
+  tags = merge(
+    { "Name" = local.service_name },
+    local.tags
+  )
 }
 
 resource "aws_kms_alias" "vector" {
+  count         = var.enable_kms ? 1 : 0
   name          = "alias/vector"
-  target_key_id = aws_kms_key.vector.key_id
+  target_key_id = aws_kms_key.vector[0].key_id
 }
