@@ -34,6 +34,8 @@ service_account = "vector"
 
 ## Documentation
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ### Requirements
 
 | Name | Version |
@@ -82,3 +84,4 @@ No Modules.
 |------|-------------|
 | kms\_arn | n/a |
 | role\_arn | n/a |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
