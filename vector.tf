@@ -21,6 +21,7 @@ data "aws_iam_policy_document" "bucket" {
       "s3:ListBucket",
     ]
 
+    #tfsec:ignore:aws-iam-no-policy-wildcards
     resources = [
       module.vector.s3_bucket_arn,
       "${module.vector.s3_bucket_arn}/*"
@@ -38,6 +39,7 @@ data "aws_iam_policy_document" "bucket" {
       "s3:ListMultipartUploadParts"
     ]
 
+    #tfsec:ignore:aws-iam-no-policy-wildcards
     resources = [
       module.vector.s3_bucket_arn,
       "${module.vector.s3_bucket_arn}/*"
