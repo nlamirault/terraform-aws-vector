@@ -105,7 +105,7 @@ resource "aws_iam_policy" "kms" {
 
 module "vector_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version = "5.12.0"
+  version = "5.13.0"
 
   create_role      = true
   role_description = "Role for vector"
