@@ -14,7 +14,7 @@
 
 module "vector_log" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "3.10.1"
+  version = "3.11.0"
 
   bucket                  = format("%s-log", local.service_name)
   block_public_acls       = true
@@ -47,7 +47,7 @@ module "vector_log" {
 
 module "vector" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "3.10.1"
+  version = "3.11.0"
 
   bucket                  = local.service_name
   block_public_acls       = true
